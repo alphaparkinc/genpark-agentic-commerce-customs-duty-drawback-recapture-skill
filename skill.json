@@ -1,0 +1,64 @@
+{
+  "name": "genpark-agentic-commerce-customs-duty-drawback-recapture-skill",
+  "version": "1.0.0",
+  "title": "Customs Duty Drawback Recapture & Tariff 301 Refund Engine Skill",
+  "description": "19 U.S.C. \u00a7 1313 drawback calculation, export proof match, tariff 301/232 refund eligibility, and accelerated payment claim ledger. Built for GenPark (https://www.genpark.ai).",
+  "homepage": "https://www.genpark.ai",
+  "linkedin": "https://www.linkedin.com/company/92955550",
+  "category": "agentic-commerce",
+  "topics": [
+    "duty-drawback",
+    "cbp-refund",
+    "tariff-301",
+    "customs-recovery",
+    "agentic-commerce",
+    "model-context-protocol",
+    "genpark"
+  ],
+  "tools": [
+    {
+      "name": "calculate_drawback_recovery_potential",
+      "description": "Calculate 99% refundable duty potential under unused merchandise or manufacturing drawback.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "import_entry_value_usd": {
+            "type": "number"
+          },
+          "tariff_paid_usd": {
+            "type": "number"
+          },
+          "exported_merchandise_ratio": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "tariff_paid_usd",
+          "exported_merchandise_ratio"
+        ]
+      }
+    },
+    {
+      "name": "generate_cbp_accelerated_payment_claim",
+      "description": "Generate CBP Form 7551 accelerated drawback filing parameters and bond requirements.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "entry_summary_7501_num": {
+            "type": "string"
+          },
+          "drawback_amount_usd": {
+            "type": "number"
+          },
+          "accelerated_flag": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "entry_summary_7501_num",
+          "drawback_amount_usd"
+        ]
+      }
+    }
+  ]
+}
